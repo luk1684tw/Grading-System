@@ -9,6 +9,8 @@ import java.io.IOException;
 public class GradeSystem {
 	private Scanner scanner;
 	private LinkedList<Grade> gradeList = new LinkedList<>();
+	public boolean flag;
+	public UI ui = new UI();
 	
 	public static final String FileName = "D:\\NTHU\\JAVA\\GradeSystem\\src\\gradeinput.txt";
 	GradeSystem() { //constructor
@@ -32,7 +34,7 @@ public class GradeSystem {
 		else if (command.equals("R"))	showRank();
 		else if (command.equals("A"))	showAverage();
 		else if (command.equals("W"))	showWeights();
-		else							Login();
+		else							Login(command);
 	}
 	
 	void LoadFile() {
@@ -42,7 +44,7 @@ public class GradeSystem {
 			String line;
 			while((line = buffer.readLine()) != null) {
 				String[] datas = line.split(" ");
-				LoadSingleData(datas);
+					LoadSingleData(datas);
 			}
 			buffer.close();
 		} catch (FileNotFoundException  e) {
@@ -55,21 +57,41 @@ public class GradeSystem {
 	}
 	
 	void LoadSingleData(String[] datas) {
-		int scores[] = {0};
+		int[] scores = new int [5];
+		if (datas[0].length() == 10) {
+			datas[0]= datas[0].substring(1, 10);
+		}
 		for (int i = 0; i < 5; i++) {
 			scores[i] = Integer.parseInt(datas[i+2]);
 		}
-		Grade grade = new Grade(datas[0], datas[1],scores);
+		Grade grade = new Grade(datas[0], datas[1], scores);
 		gradeList.add(grade);
 	}
 	
 	void Exit() {
 		System.out.println("Closing GradeSystem...");
+		System.out.println("... ... ... ... ...");
+		System.out.println("成績系統已關閉");
 		System.exit(0);
 	}
-	void showGrade() {}
+	void showGrade() {
+		
+	}
 	void showRank() {}
 	void showAverage() {}
 	void showWeights() {}
-	void Login() {}
+	
+	void Login(String command) {
+		boolean flag = false;
+		for (Grade grade: gradeList) {
+			if (command.equals(grade.getID())) {
+				String name = grade.getName();
+				ui.showWelcomeMsg(name);
+				flag = true;
+			}
+		}
+		if (!flag) {
+			System.out.println("登入失敗，請確認ID...");
+		}
+	}
 }

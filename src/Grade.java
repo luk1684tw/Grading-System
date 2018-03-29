@@ -16,12 +16,19 @@ public class Grade {
 		//test();
 	}
 	
-//	void test() {
-//		StringBuilder builder = new StringBuilder();
-//		builder.append(name + " ¦¨ÁZ: \r\n");
-//		for (int i = 0; i < 5; i++) {
-//			builder.append("   " + Subjects[i] + ": " + scores[i]);
-//		}
-//		System.out.println(builder.toString());
-//	}
+	void showGrade() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(name + " ¦¨ÁZ: \r\n");
+		for (int i = 0; i < 5; i++) {
+			builder.append("   " + Subjects[i] + ": " + scores[i]);
+		}
+		System.out.println(builder.toString());
+	}
+	
+	String getID() {
+		return id;
+	}
+	String  getName() {
+		return name;
+	}
 }

@@ -10,6 +10,8 @@ public class UI {
 		
 	}
 	
-
+	void showWelcomeMsg(String name) {
+		System.out.println("Åwªï¦^¨Ó!!   " + name);
+	}
 	
 }
