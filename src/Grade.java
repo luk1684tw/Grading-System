@@ -4,31 +4,30 @@ public class Grade {
 	private String id, name;
 	private int[] scores;
 	public String[] Subjects = {"lab1", "lab2", "lab3", "mid-term", "final exam"};
-	private int weightedScore;
+	public int weightedScore;
 	
 	
 	
-	Grade(String ID, String Name, int[] Score) {
+	Grade(String ID, String Name, int[] Score, int[] Weights) {
 		id = ID;
 		name = Name;
 		scores = Score;
-		weightedScore = -1;
-		//test();
-	}
-	
-	void showGrade() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(name + " ¦¨ÁZ: \r\n");
-		for (int i = 0; i < 5; i++) {
-			builder.append("   " + Subjects[i] + ": " + scores[i]);
+		for (int i = 0; i < 5 ; i++) {
+			weightedScore += scores[i] * Weights[i];
 		}
-		System.out.println(builder.toString());
+		weightedScore /= 100;
 	}
 	
 	String getID() {
 		return id;
 	}
-	String  getName() {
+	String getName() {
 		return name;
+	}
+	int[] getScores() {
+		return scores;
+	}
+	int getWeightedScore() {
+		return weightedScore;
 	}
 }
