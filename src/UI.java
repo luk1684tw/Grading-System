@@ -6,35 +6,35 @@ public class UI {
 	}
 	
 	void showWelcomeMsg() {
-		System.out.println("¿é¤J«ü¥O   1) G Åã¥Ü¦¨ÁZ ");
-		System.out.println("      2) R Åã¥Ü±Æ¦W ");
-		System.out.println("      3) A Åã¥Ü¥­§¡ ");
-		System.out.println("      4) W §ó·s°t¤À");
-		System.out.print("      5) E µn¥X¨t²Î\n>> ");
+		System.out.println("è¼¸å…¥æŒ‡ä»¤   1) G é¡¯ç¤ºæˆç¸¾ ");
+		System.out.println("      2) R é¡¯ç¤ºæ’å ");
+		System.out.println("      3) A é¡¯ç¤ºå¹³å‡ ");
+		System.out.println("      4) W æ›´æ–°é…åˆ†");
+		System.out.print("      5) E ç™»å‡ºç³»çµ±\n>> ");
 	}
 	
 	void showFinishMsg(boolean flag, String name) {
 		if (flag) {
-			System.out.println("¤U¦¸¨£ ! " + name);
-			System.out.print("½Ğ¿é¤J¾Ç¸¹¥Hµn¤J©Î«öQÂ÷¶}\n>> ");
+			System.out.println("ä¸‹æ¬¡è¦‹ ! " + name);
+			System.out.print("è«‹è¼¸å…¥å­¸è™Ÿä»¥ç™»å…¥æˆ–æŒ‰Qé›¢é–‹\n>> ");
 		} else {
 			System.out.println("Closing GradeSystem... ... ...");
-			System.out.println("¦¨ÁZ¨t²Î¤wÃö³¬");
+			System.out.println("æˆç¸¾ç³»çµ±å·²é—œé–‰");
 			System.exit(0);
 		}
 	}
 	
 	void showAverage(int[] averages, String[] subjects) {
 		StringBuilder builder = new StringBuilder();
-		builder.append("¦U¶µ¦¨ÁZ¥­§¡: \r\n");
+		builder.append("å„é …æˆç¸¾å¹³å‡: \r\n");
 		for (int i = 0; i < 5; i++) {
-			builder.append("   " + subjects[i] + " ¥­§¡: " + averages[i] + "\r\n");
+			builder.append("   " + subjects[i] + " å¹³å‡: " + averages[i] + "\r\n");
 		}
 		System.out.println(builder.toString());
 	}
 	
 	void showRank(int rank, String name) {
-		System.out.println(name + "±Æ¦W: ²Ä" + rank + "¦W");
+		System.out.println(name + "æ’å: ç¬¬" + rank + "å");
 	}
 	
 	void showWeights(int[] weights, String[] Subjects) {
@@ -48,7 +48,7 @@ public class UI {
 	
 	void showGrade(Grade currentUser, String[] Subjects) {
 		StringBuilder builder = new StringBuilder();
-		builder.append(currentUser.getName()+ "ªº¦¨ÁZ: \r\n");
+		builder.append(currentUser.getName()+ "çš„æˆç¸¾: \r\n");
 		int[] scores = currentUser.getScores();
 		for (int i = 0; i < 5; i++) {
 			if (scores[i] < 60) builder.append("   " + Subjects[i] + ": " + scores[i] + "*\r\n");

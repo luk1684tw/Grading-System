@@ -28,7 +28,7 @@ public class GradeSystem {
 		currentWeights = defaultWeights;
 	}
 	void LoginListener() {
-		System.out.print("½Ğ¿é¤J¾Ç¸¹¥Hµn¤J©Î«öQÂ÷¶}\n>> ");
+		System.out.print("è«‹è¼¸å…¥å­¸è™Ÿä»¥ç™»å…¥æˆ–æŒ‰Qé›¢é–‹\n>> ");
 		while(scanner.hasNextLine()) {
 			String ID = scanner.nextLine();
 			if (ID.equals("Q")) {
@@ -37,7 +37,7 @@ public class GradeSystem {
 				Login(ID);
 				CommandListener();
 			} else {
-				System.out.print("ID®æ¦¡¿ù»~¡A½Ğ½T»{ID«á¦A¿é¤J\n>> ");
+				System.out.print("IDæ ¼å¼éŒ¯èª¤ï¼Œè«‹ç¢ºèªIDå¾Œå†è¼¸å…¥\n>> ");
 			}
 		}
 	}
@@ -59,7 +59,7 @@ public class GradeSystem {
 		else if (command.equals("W"))	handleWeights();
 		else if (command.equals("E"))	Logout();
 		else  {
-			System.out.println("¥¼ª¾ªº«ü¥O");
+			System.out.println("æœªçŸ¥çš„æŒ‡ä»¤");
 			ui.showWelcomeMsg();
 		}
 														
@@ -108,7 +108,7 @@ public class GradeSystem {
 			ui.showGrade(currentUser, Subjects);
 			ui.showWelcomeMsg();
 		} else {
-			System.out.println("½Ğ¥ıµn¤J!!");
+			System.out.println("è«‹å…ˆç™»å…¥!!");
 		}
 	}
 	
@@ -123,7 +123,7 @@ public class GradeSystem {
 			ui.showRank(rank, currentUser.getName());
 			ui.showWelcomeMsg();
 		} else {
-			System.out.println("½Ğ¥ıµn¤J!!");
+			System.out.println("è«‹å…ˆç™»å…¥!!");
 		}
 	}
 	
@@ -134,7 +134,7 @@ public class GradeSystem {
 			 ui.showAverage(averages, Subjects);
 			 ui.showWelcomeMsg();
 		} else {
-			System.out.println("½Ğ¥ıµn¤J!!");
+			System.out.println("è«‹å…ˆç™»å…¥!!");
 		}
 	}
 	
@@ -152,9 +152,9 @@ public class GradeSystem {
 	
 	void handleWeights() {
 		if (locked) {
-			System.out.println("ÂÂ°t¤À: ");
+			System.out.println("èˆŠé…åˆ†: ");
 			ui.showWeights(currentWeights, Subjects);
-			System.out.println("½Ğ¿é¤J·s°t¤À");
+			System.out.println("è«‹è¼¸å…¥æ–°é…åˆ†");
 			try {
 				int[] newWeights = new int[5];
 				int sum = 0;
@@ -165,38 +165,38 @@ public class GradeSystem {
 				}
 				scanner.nextLine();
 				if (sum != 100) {
-					System.out.println("°t¤ÀÁ`©M¤£¬O100%¡A§P©w¬°¤£¦Xªk¿é¤J");
+					System.out.println("é…åˆ†ç¸½å’Œä¸æ˜¯100%ï¼Œåˆ¤å®šç‚ºä¸åˆæ³•è¼¸å…¥");
 				} else {
 					changeWeights(newWeights);
 				}
 				ui.showWelcomeMsg();
 			} catch (InputMismatchException e) {
-				System.out.println("½Ğ¿é¤J¦Xªkªº¼Æ¦r¡A¦^¨ì¿ï³æ");
+				System.out.println("è«‹è¼¸å…¥åˆæ³•çš„æ•¸å­—ï¼Œå›åˆ°é¸å–®");
 				ui.showWelcomeMsg();
 			} catch (NoSuchElementException e) {
-				System.out.println("°»´ú¨ìEOF¡A¦^¨ì¿ï³æ");
+				System.out.println("åµæ¸¬åˆ°EOFï¼Œå›åˆ°é¸å–®");
 				ui.showWelcomeMsg();
 			}
 		} else {
-			System.out.println("½Ğ¥ıµn¤J!!");
+			System.out.println("è«‹å…ˆç™»å…¥!!");
 		}
 	}
 	
 	void changeWeights(int[] weights) {
-		System.out.print("¥H¤W¥¿½T¶Ü? ½Ğ¿é¤JY(Yes) ©Î N(No)\n>> ");
+		System.out.print("ä»¥ä¸Šæ­£ç¢ºå—? è«‹è¼¸å…¥Y(Yes) æˆ– N(No)\n>> ");
 		if (scanner.hasNextLine()) {
 			String command = scanner.nextLine(); 
 			if (command.equals("Y")) {
 				currentWeights = weights;
-				System.out.println("·s°t¤À: ");
+				System.out.println("æ–°é…åˆ†: ");
 				ui.showWeights(currentWeights, Subjects);
-				System.out.println("­×§ï¦¨¥\¡A¦^¨ì¿ï³æ");
+				System.out.println("ä¿®æ”¹æˆåŠŸï¼Œå›åˆ°é¸å–®");
 			} else if (command.equals("N")) {
-				System.out.println("¨ú®ø­×§ï¡A¦^¨ì¿ï³æ");
+				System.out.println("å–æ¶ˆä¿®æ”¹ï¼Œå›åˆ°é¸å–®");
 			} else 
-				System.out.println("¤£¦Xªk¿é¤J¡A¦^¨ì¿ï³æ");
+				System.out.println("ä¸åˆæ³•è¼¸å…¥ï¼Œå›åˆ°é¸å–®");
 		} else {
-			System.out.println("°»´ú¨ìEOF¡A¦^¨ì¿ï³æ");
+			System.out.println("åµæ¸¬åˆ°EOFï¼Œå›åˆ°é¸å–®");
 		}
 	}
 	
@@ -209,13 +209,13 @@ public class GradeSystem {
 		for (Grade grade: gradeList) {
 			if (command.equals(grade.getID())) {
 				currentUser = grade;
-				System.out.println("Åwªï¦^¨Ó!   " + currentUser.getName());
+				System.out.println("æ­¡è¿å›ä¾†!   " + currentUser.getName());
 				ui.showWelcomeMsg();
 				locked = true;
 			}
 		}
 		if (!locked) {
-			System.out.println("µn¤J¥¢±Ñ¡A½Ğ½T»{ID...");
+			System.out.println("ç™»å…¥å¤±æ•—ï¼Œè«‹ç¢ºèªID...");
 		}
 	}
 }
