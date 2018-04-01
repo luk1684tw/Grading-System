@@ -20,12 +20,12 @@ public class UI {
 	 * 
 	 * Complexity: O(1)
 	 */
-	void showWelcomeMsg() {
+	public void showWelcomeMsg() {
 		System.out.println("輸入指令   1) G 顯示成績 ");
-		System.out.println("      2) R 顯示排名 ");
-		System.out.println("      3) A 顯示平均 ");
-		System.out.println("      4) W 更新配分");
-		System.out.print("      5) E 登出系統\n>> ");
+		System.out.println("       2) R 顯示排名 ");
+		System.out.println("       3) A 顯示平均 ");
+		System.out.println("       4) W 更新配分");
+		System.out.print("       5) E 登出系統\n>> ");
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class UI {
 	 * 
 	 * Complexity: O(1)
 	 */
-	void showFinishMsg(boolean flag, String name) {
+	public void showFinishMsg(boolean flag, String name) {
 		if (flag) {
 			System.out.println("下次見 ! " + name);
 			System.out.print("請輸入學號以登入或按Q離開\n>> ");
@@ -66,7 +66,7 @@ public class UI {
 	 * 
 	 * Complexity: O(1)
 	 */
-	void showAverage(int[] averages, String[] subjects) {
+	public void showAverage(int[] averages, String[] subjects) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("各項成績平均: \r\n");
 		for (int i = 0; i < 5; i++) {
@@ -87,7 +87,7 @@ public class UI {
 	 * 
 	 * Complexity: O(1)
 	 */
-	void showRank(int rank, String name) {
+	public void showRank(int rank, String name) {
 		System.out.println(name + "排名: 第" + rank + "名");
 	}
 	
@@ -103,7 +103,7 @@ public class UI {
 	 * 
 	 * Complexity: O(1)
 	 */
-	void showWeights(int[] weights, String[] Subjects) {
+	public void showWeights(int[] weights, String[] Subjects) {
 		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < 5; i++) {
 			builder.append("   " + Subjects[i] + " : " + weights[i] + "%" + "\r\n");
@@ -126,7 +126,7 @@ public class UI {
 	 * 
 	 * Complexity: O(1)
 	 */
-	void showGrade(Grade currentUser, String[] Subjects) {
+	public void showGrade(Grade currentUser, String[] Subjects) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(currentUser.getName()+ "的成績: \r\n");
 		int[] scores = currentUser.getScores();

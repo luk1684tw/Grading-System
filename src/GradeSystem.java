@@ -42,7 +42,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(1)
 	 */
-	GradeSystem() { //constructor
+	public GradeSystem() { //constructor
 		scanner = new Scanner(System.in);
 		locked= false;
 		currentWeights = defaultWeights;
@@ -80,7 +80,7 @@ public class GradeSystem {
 	 * 
 	 * Pseudo Code:
 	 * 1. 抓取指令並呼叫CommandHandler處理
-	 * 2. 如果lock為false，代表目前無使用者登入，退出迴圈並回到LoginListener
+	 * 2. 如果locked為false，代表目前無使用者登入，退出迴圈並回到LoginListener
 	 * 
 	 * Complexity: it takes O(1) to call CommandHandler
 	 */
@@ -122,7 +122,7 @@ public class GradeSystem {
 	 * Method LoadFile: Load all grades in
 	 * 
 	 * Pseudo Code:
-	 * 1. 以UTF-8編碼將檔案存取近來
+	 * 1. 以UTF-8編碼將檔案存取進來
 	 * 2. 將檔案一行一行以String讀取進來，得到每個人的資料
 	 * 3. 每行String用空格分隔取出資料並存成
 	 * 4. 呼叫LoadSingleData將取出的資料傳進去
@@ -232,7 +232,7 @@ public class GradeSystem {
 	 * Pseudo Code:
 	 * 1. 呼叫countAverage算出所有科目的平均
 	 * 2. 呼叫ui.showAverage以顯示平均分數
-	 * 4. 呼叫ui.showWelcomMsg以顯示指令選單
+	 * 3. 呼叫ui.showWelcomMsg以顯示指令選單
 	 * 
 	 * Complexity: O(1)
 	 */
@@ -355,7 +355,7 @@ public class GradeSystem {
 	}
 	
 	/**
-	 * Method Logout: handle user login action
+	 * Method Login: handle user login action
 	 * 
 	 * Pseudo Code:
 	 * 1. 存取gradeList內每個元素逐一比對每個元素的ID與使用者輸入的ID

@@ -27,7 +27,7 @@ public class Grade {
 	 * 
 	 * Complexity: O(1)
 	 */
-	Grade(String ID, String Name, int[] Score, int[] Weights) {
+	public Grade(String ID, String Name, int[] Score, int[] Weights) {
 		id = ID;
 		name = Name;
 		scores = Score;
@@ -48,7 +48,7 @@ public class Grade {
 	 * 
 	 * Complexity: O(1)
 	 */
-	String getID() {
+	public String getID() {
 		return id;
 	}
 	
@@ -63,7 +63,7 @@ public class Grade {
 	 * 
 	 * Complexity: O(1)
 	 */
-	String getName() {
+	public String getName() {
 		return name;
 	}
 	
@@ -78,7 +78,7 @@ public class Grade {
 	 * 
 	 * Complexity: O(1)
 	 */
-	int[] getScores() {
+	public int[] getScores() {
 		return scores;
 	}
 	
@@ -93,7 +93,7 @@ public class Grade {
 	 * 
 	 * Complexity: O(1)
 	 */
-	int getWeightedScore() {
+	public int getWeightedScore() {
 		return weightedScore;
 	}
 }
