@@ -123,6 +123,8 @@ public class UI {
 	 * 2. 如果該科目的成績不及格，則在成績後面加上"*"
 	 * 3. 再串上該使用者的加權平均
 	 * 4. 將串好的builder轉成String並顯示
+	 * 
+	 * Complexity: O(1)
 	 */
 	void showGrade(Grade currentUser, String[] Subjects) {
 		StringBuilder builder = new StringBuilder();
