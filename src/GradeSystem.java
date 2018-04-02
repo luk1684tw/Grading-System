@@ -21,7 +21,7 @@ public class GradeSystem {
 	private int[] averages = new int[5];
 	private String[] Subjects = {"lab1", "lab2", "lab3", "mid-term", "final exam"};
 	
-	public static final String FileName = "D:\\NTHU\\JAVA\\GradeSystem\\src\\gradeinput.txt";
+	public static final String FileName = "gradeinput.txt";
 	GradeSystem() { //constructor
 		scanner = new Scanner(System.in);
 		locked= false;
