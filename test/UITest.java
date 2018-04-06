@@ -2,6 +2,7 @@
  * Class UITest: 測試UI public method.
  * 
  * Bugs: 尚未發現.
+ * @author weichu
  */
 import static org.junit.Assert.*;
 

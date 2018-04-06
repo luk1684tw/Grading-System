@@ -1,7 +1,7 @@
 /**
  * Class GradeTest: 測試 class: Grade的public method.
  * Bugs: 尚未發現.
- * 
+ * @author weichu
  */
 import static org.junit.Assert.*;
 

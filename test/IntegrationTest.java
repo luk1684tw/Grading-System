@@ -1,6 +1,7 @@
 /**
  * Class IntegrationTest: 測試使用上的功能。
  * Bugs: 尚未發現.
+ * @author weichu
  */
 
 
@@ -15,10 +16,10 @@ import org.junit.Test;
 
 public class IntegrationTest {
 
-    private ByteArrayOutputStream outContent;
+    private ByteArrayOutputStream output;
     
     /**
-     * Method setUp: this method will run before any test method.
+     * Method setUp: 初始化設定。
      * 
      * Pseudo code:
      * 1. new a ByteArrayOutputStream.
@@ -29,8 +30,8 @@ public class IntegrationTest {
      */
     @Before
     public void setUp() {
-        outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
+        output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
     }
     
     /**
@@ -70,7 +71,7 @@ public class IntegrationTest {
 		expected += "       3) A 顯示平均 \n";
 		expected += "       4) W 更新配分\n";
 		expected += "       5) E 登出系統\n>> ";
-        assertEquals(expected, outContent.toString());
+        assertEquals(expected, output.toString());
     }
     
     /**
@@ -104,7 +105,7 @@ public class IntegrationTest {
 		expected += "       3) A 顯示平均 \n";
 		expected += "       4) W 更新配分\n";
 		expected += "       5) E 登出系統\n>> ";
-        assertEquals(expected, outContent.toString());
+        assertEquals(expected, output.toString());
     }
 
 	/**
@@ -145,7 +146,7 @@ public class IntegrationTest {
 		expected += "       3) A 顯示平均 \n";
 		expected += "       4) W 更新配分\n";
 		expected += "       5) E 登出系統\n>> ";
-	    assertEquals(expected, outContent.toString());
+	    assertEquals(expected, output.toString());
 	}
 	/**
 	 * Method showReweight: 測試更改權重功能.
@@ -197,7 +198,7 @@ public class IntegrationTest {
 		expected += "       3) A 顯示平均 \n";
 		expected += "       4) W 更新配分\n";
 		expected += "       5) E 登出系統\n>> ";
-	    assertEquals(expected, outContent.toString());
+	    assertEquals(expected, output.toString());
 	}
 	/**
 	 * Method showLogoutTest: 測試登出功能.
@@ -229,6 +230,6 @@ public class IntegrationTest {
     	expected += "請輸入學號以登入或按Q離開\n>> ";
     	expected += "Closing GradeSystem... ... ...\n";
     	expected += "成績系統已關閉\n";
-	    assertEquals(expected, outContent.toString());
+	    assertEquals(expected, output.toString());
 	}
 }
