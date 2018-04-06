@@ -1,6 +1,10 @@
 /.metadata/
 /Grade.class
 /GradeSystem.class
+/GradeSystemTest.class
+/GradeTest.class
+/IntegrationTest.class
 /Main.class
 /UI.class
+/UITest.class
 /gradeinput.txt

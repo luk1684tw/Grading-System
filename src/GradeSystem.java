@@ -67,6 +67,7 @@ public class GradeSystem {
 			String ID = scanner.nextLine();
 			if (ID.equals("Q")) {
 				Exit();
+				break;
 			} else if (ID.length() == 9) {
 				Login(ID);
 				CommandListener();
@@ -85,7 +86,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: it takes O(1) to call CommandHandler
 	 */
-	public void CommandListener() {
+	private void CommandListener() {
 		String command;
 		while(scanner.hasNextLine()) {
 			command = scanner.nextLine();
@@ -106,7 +107,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: it takes O(1) to identify which command it is
 	 */
-	public void CommandHandler(String command) {
+	private void CommandHandler(String command) {
 		if 		(command.equals("G"))	handleGrade();
 		else if (command.equals("R"))	handleRank();
 		else if (command.equals("A"))	handleAverage();
@@ -144,6 +145,7 @@ public class GradeSystem {
 					LoadSingleData(datas);
 			}
 			buffer.close();
+			System.out.println("Loading...");
 		} catch (FileNotFoundException  e) {
 			System.out.println("File not found: " + FileName);
 			System.exit(0);
@@ -168,7 +170,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: it takes O(n) to split file line by line
 	 */
-	public void LoadSingleData(String[] datas) {
+	private void LoadSingleData(String[] datas) {
 		int[] scores = new int [5];
 		if (datas[0].length() == 10) {
 			datas[0]= datas[0].substring(1, 10);
@@ -188,7 +190,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(1)
 	 */
-	public void Exit() {						
+	private void Exit() {						
 		ui.showFinishMsg(locked, " ");
 	}
 	
@@ -201,7 +203,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(1)
 	 */
-	public void handleGrade() {					
+	private void handleGrade() {					
 		ui.showGrade(currentUser, Subjects);
 		ui.showWelcomeMsg();
 	}
@@ -217,7 +219,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(n) to traverse the list
 	 */
-	public void handleRank() {
+	private void handleRank() {
 		int rank = 1;
 		for (Grade grade:gradeList) {
 			if (grade.weightedScore > currentUser.weightedScore)
@@ -237,7 +239,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(1)
 	 */
-	public void handleAverage() {
+	private void handleAverage() {
 		countAverage();
 		ui.showAverage(averages, Subjects);
 		ui.showWelcomeMsg();
@@ -253,7 +255,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(n) to traverse the list
 	 */
-	public void countAverage() {
+	private void countAverage() {
 		for (Grade grade:gradeList) {
 			for (int i = 0; i < 5; i++) {
 				averages[i] += grade.getScores()[i];
@@ -282,7 +284,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(1)
 	 */
-	public void handleWeights() {
+	private void handleWeights() {
 		System.out.println("舊配分: ");
 		ui.showWeights(currentWeights, Subjects);
 		System.out.println("請輸入新配分");
@@ -323,7 +325,7 @@ public class GradeSystem {
 	 *  
 	 * Complexity: O(1)
 	 */
-	public void changeWeights(int[] weights) {
+	private void changeWeights(int[] weights) {
 		System.out.print("以上正確嗎? 請輸入Y(Yes) 或 N(No)\n>> ");
 		if (scanner.hasNextLine()) {
 			String command = scanner.nextLine(); 
@@ -350,7 +352,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(1)
 	 */
-	public void Logout() {								
+	private void Logout() {								
 		ui.showFinishMsg(locked, currentUser.getName());
 		locked = false;
 	}
@@ -367,7 +369,7 @@ public class GradeSystem {
 	 * 
 	 * Complexity: O(n)
 	 */
-	public void Login(String command) {				
+	private void Login(String command) {				
 		for (Grade grade: gradeList) {
 			if (command.equals(grade.getID())) {
 				currentUser = grade;

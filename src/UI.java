@@ -49,7 +49,7 @@ public class UI {
 		} else {
 			System.out.println("Closing GradeSystem... ... ...");
 			System.out.println("成績系統已關閉");
-			System.exit(0);
+			//System.exit(0);
 		}
 	}
 	
